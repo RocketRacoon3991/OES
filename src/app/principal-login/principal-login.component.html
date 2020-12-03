@@ -1,0 +1,99 @@
+<body>
+  <div class="bg">
+    <div class="card-body">
+      <form #logInForm="ngForm" (ngSubmit)="LogInForm(logInForm)">
+        <div class="alert alert-success" *ngIf="authenticated == true">
+          {{ message }}
+        </div>
+        <div class="alert alert-danger" *ngIf="authenticated == false">
+          {{ message }}
+        </div>
+        <br />
+        <div class="container register-form">
+          <div class="form">
+            <div class="note" style="text-align: center;">
+              <h2>
+                Admin LogIn Here <span class="glyphicon glyphicon-hand-down"></span>
+              </h2>
+            </div>
+            <br />
+            <div class="form-content">
+              <div class="row">
+                <div class="col-md-5 offset-4">
+                  <label style="font-weight: bold;">Email :</label>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter your Registered Email *"
+                      value=""
+                      name="EmailId"
+                      required
+                      ngModel
+                      [(ngModel)]="principaluser.EmailId"
+                      #EmailId="ngModel"
+                      pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      *ngIf="EmailId.touched && !EmailId.valid"
+                    >
+                      <span class="help=bpx">Please Enter a valid Email</span>
+                      <div *ngIf="EmailId.errors.pattern">
+                        *Enter valid Email Id
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-5 offset-4">
+                  <label style="font-weight: bold;">Password :</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Your Password *"
+                    value=""
+                    name="Password"
+                    required
+                    minlength="8"
+                    ngModel
+                    [(ngModel)]="principaluser.Password"
+                    #Password="ngModel"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    *ngIf="Password.touched && !Password.valid"
+                  >
+                    <div *ngIf="Password.errors.required">
+                      Password is required.
+                    </div>
+                    <!-- <div *ngIf="Password.errors.minlength">
+                Password must be at least 8 characters long.
+              </div> -->
+                  </div>
+                </div>
+              </div>
+              <br />
+              <br />
+              <div style="margin-left: 380px; margin-bottom: 200px;">
+                <button type="submit" class="btn btn-primary " >
+                  Submit
+                </button>
+                <br>
+              <br>
+                <div>
+                
+                  <p>Login as <a (click) = 'LoginAsTeacher()' >Teacher</a>  |
+                      <a (click) = 'LoginAsStudent()'>Student</a></p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

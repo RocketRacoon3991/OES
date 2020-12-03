@@ -1,0 +1,16 @@
+<div>
+    <table class="table">
+        <tr>
+            <th>To Account</th>
+            <th>Amount</th>
+            <th>Transaction Date</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor="let i of TransactionDetails">
+            <td>{{i.ToAccount}}</td>
+            <td>{{i.Amount}}</td>
+            <td>{{i.TransactionDate}}</td>
+            <td>{{i.Status}}</td>
+        </tr>
+    </table>
+</div>

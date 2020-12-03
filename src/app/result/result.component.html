@@ -1,0 +1,78 @@
+<app-student-navbar></app-student-navbar><br><br>
+<body>
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <h1 class="text-center" style="color: white; margin: 30px;">
+        Test Completed
+      </h1>
+      <div class="jumbotron" style="padding: 20px;">
+        <div class="row">
+          <div class="col-md-2">
+            <img
+              src="assets/Image/trophy.png"
+              style="height: 100px; width: 100px; margin-left: 150px;"
+              alt="aa"
+            />
+          </div>
+          <div class="col-md-7 offset-2">
+            <h4 style="text-align: center;">{{ studentname }}</h4>
+            <h3 style="text-align: center;">
+              {{ onlineQuizService.correctAnswerCount }}/10
+            </h3>
+
+            <button
+              style="margin-left: 205px;"
+              type="submit"
+              class="btn btn-primary"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2>
+        Correct Answer
+      </h2>
+      <ng-container
+        *ngFor="let Q of onlineQuizService.questions; let i = index"
+      >
+        <br />
+        <div class="card blue">
+          <div class="card-content">
+            <p>
+              {{ i + 1 }}.
+              {{ Q.Qn }}
+            </p>
+          </div>
+          <div class="card-action">
+            <ul class="collection">
+              <ng-container *ngFor="let option of Q.Options; let j = index">
+                <li class="collection-item">
+                  {{ option }}
+                  <span class="badge" *ngIf="Q.Correct == j">
+                    <i
+                      style="size: 50px; color: green;"
+                      class="fa fa-check-circle"
+                    ></i>
+                    <p>Correct Ans</p>
+                  </span>
+                  <span
+                    class="badge red-text"
+                    *ngIf="Q.ans == j && Q.Correct != j"
+                  >
+                    <i
+                      style="size: 50px; color: red;"
+                      class="fa fa-times-circle"
+                    ></i>
+                    <p>Wrong Ans</p>
+                  </span>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</body>

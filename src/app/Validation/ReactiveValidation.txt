@@ -1,0 +1,83 @@
+Component html file
+
+For FirstName   -----> 
+
+ <div class="col-md-6">
+     <input type="text" name="" id="" class="form-control" formControlName="FirstName" placeholder="FirstName" required 
+           [ngClass]="{
+                'has-danger': addTeacher.controls.FirstName.invalid && (addTeacher.controls.FirstName.dirty || addTeacher.controls.FirstName.touched),
+                 'has-success': addTeacher.controls.FirstName.valid && (addTeacher.controls.FirstName.dirty || addTeacher.controls.FirstName.touched)
+                  }" >
+                       
+          <div class="form-control-feedback"
+               *ngIf="addTeacher.get('FirstName').errors && (addTeacher.get('FirstName').dirty || addTeacher.get('FirstName').touched)">
+                <p style="color: red;" *ngIf="addTeacher.get('FirstName').errors.required">First Name is required</p>
+                <p style="color: red;" *ngIf="addTeacher.get('FirstName').errors.pattern">Only albhabets allowed.</p>
+           </div>
+                        
+   </div>
+
+
+For Email ---->
+
+<div class="form-group has-success">
+         <input type="text" name="" id="" class="form-control" formControlName="EmailId" placeholder="EmailId"
+              [ngClass]="{
+               'has-danger': addTeacher.controls.EmailId.invalid && (addTeacher.controls.EmailId.dirty || addTeacher.controls.EmailId.touched),
+                'has-success': addTeacher.controls.EmailId.valid && (addTeacher.controls.EmailId.dirty || addTeacher.controls.EmailId.touched)
+                 }">
+             <div class="form-control-feedback"
+                  *ngIf="addTeacher.get('EmailId').errors && (addTeacher.get('EmailId').dirty || addTeacher.get('EmailId').touched)">
+                   <p style="color: red;" *ngIf="addTeacher.get('EmailId').errors.required">EmailId is required</p>
+                   <p style="color: red;" *ngIf="addTeacher.get('EmailId').errors.pattern">Please enter valid email address</p>
+                         
+              </div>
+</div>
+
+
+For Password ---------->
+
+ <div class="col-md-6">
+          <input type="password" name="" class="form-control" formControlName="Password" id="" minlength="8" placeholder="Password"
+                 [ngClass]="{
+                 'has-danger': addTeacher.controls.Password.invalid && (addTeacher.controls.Password.dirty || addTeacher.controls.Password.touched),
+                  'has-success': addTeacher.controls.Password.valid && (addTeacher.controls.Password.dirty || addTeacher.controls.Password.touched)
+                   }">
+            <div class="form-control-feedback"
+                 *ngIf="addTeacher.get('Password').errors && (addTeacher.get('Password').dirty || addTeacher.get('Password').touched)">
+                  <p style="color: red;" *ngIf="addTeacher.get('Password').errors.required">Password is required</p>
+                  <p style="color: red;" *ngIf="addTeacher.get('Password').errors.minlength">Password must be 8 characters long, we need another
+                  {{ addTeacher.get('Password').errors.minlength.requiredLength - addTeacher.get('Password').errors.minlength.actualLength }} characters </p>
+             </div>
+  </div>
+
+-------------------------------------------------------
+Component css file  ------>
+
+.has-success  {
+  border-color: rgb(40, 236, 40);
+}
+
+.has-danger{
+    border-color: red;
+}
+ 
+---------------------------------------------------------
+
+Componenet ts file ----------->
+
+ngOnInit() {
+    this.addTeacher= this.formBuilder.group({
+      FirstName: ['',[Validators.required,Validators.pattern("^[a-zA-Z]{1,20}$")]],
+      LastName : ['',[Validators.required,Validators.pattern("^[a-zA-Z]{1,20}$")]],
+      EmailId : ['',[Validators.required,Validators.pattern("^[a-zA-Z0-9]{1,35}@[a-zA-Z]{1,10}.com$")]],
+      MobileNo : ['',[Validators.required,Validators.maxLength(10)]],
+      Gender : ['',Validators.required],
+      SubjectName : ['',Validators.required],
+      Qualification : ['',Validators.required],
+      Salary :['',Validators.required],
+      JoiningDate :['',Validators.required],
+      RoleName : ['',Validators.required],
+      Password : ['',[Validators.required,Validators.minLength(8)]]
+    });
+}

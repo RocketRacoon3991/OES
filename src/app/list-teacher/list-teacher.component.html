@@ -1,0 +1,64 @@
+<app-principal-navbar></app-principal-navbar><br /><br />
+<h2 style="text-align: center; margin-top: 10px;">Teacher List</h2>
+<table
+  class="table table-bordered table-hover table-striped"
+  style="margin-top: 10px;"
+>
+  <tr style="background-color: orange; color: white;">
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email Id</th>
+    <th>Mobile No</th>
+    <th>Qualification</th>
+    <th>Joining Date</th>
+    <th>Gender</th>
+    <th>Subject Name</th>
+    <th>Password</th>
+    <th>Salary</th>
+    <th>Manage Teachers</th>
+  </tr>
+  <tr *ngFor="let i of teacherlist">
+    <input type="hidden" value="{{ i.teacher.TeacherId }}" />
+    <td>{{ i.teacher.FirstName }}</td>
+    <td>{{ i.teacher.LastName }}</td>
+    <td>{{ i.teacher.EmailId }}</td>
+    <td>{{ i.teacher.MobileNo }}</td>
+    <td>{{ i.teacher.Qualification }}</td>
+    <td>{{ i.teacher.JoiningDate }}</td>
+    <td>{{ i.teacher.Gender }}</td>
+    <td>{{ i.SubjectName }}</td>
+    <td>{{ i.teacher.Password }}</td>
+    <td>{{ i.teacher.Salary }}</td>
+    <td>
+      <!-- <button
+        type="button"
+        class="btn btn-success"
+        matTooltip="Edit"
+        (click)="Edit(i.teacher)"
+      > -->
+      <i
+        class="fa fa-pencil-square-o"
+        aria-hidden="true"
+        style="color: rgb(20, 183, 238); font-size: 30px;"
+        (click)="Edit(i.teacher)"
+      ></i>
+      &nbsp;
+      <!-- </button> -->
+
+      <!-- <button
+        type="button"
+        class="btn btn-danger"
+        matTooltip="Delete"
+        (click)="Delete(i.teacher.TeacherId)"
+      >
+        Delete
+      </button> -->
+      <i
+        class="fa fa-trash"
+        aria-hidden="true"
+        style="color: red; font-size: 30px;"
+        (click)="Delete(i.teacher.TeacherId)"
+      ></i>
+    </td>
+  </tr>
+</table>

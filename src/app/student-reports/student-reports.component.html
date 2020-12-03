@@ -1,0 +1,39 @@
+<app-student-navbar></app-student-navbar><br><br>
+<body>
+  <br />
+  <div style="text-align: center; margin-top: 40px;">
+    <h2>Student Reports</h2>
+  </div>
+  <br />
+  <div class="table_list_Report">
+    <table class="table table-bordered table-hover table-striped">
+      <tr class="info" style="background-color: #3bb5ff; color: white;">
+        <th>Sr No.</th>
+        <th>Student Roll No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Subject Name</th>
+        <th>Score</th>
+        <th>Submitted Date</th>
+      </tr>
+      <tr
+        *ngFor="
+          let i = index;
+          let R;
+          of: StudentReport
+            | search: SearchTerm
+            | paginate: { itemsPerPage: 5, currentPage: p }
+        "
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ R.RollNo }}</td>
+        <td>{{ R.FirstName }}</td>
+        <td>{{ R.LastName }}</td>
+        <td>{{ R.SubjectName }}</td>
+        <td>{{ R.Score }}</td>
+        <td>{{ R.SubmittedDate | date: "yyyy-MM-dd" }}</td>
+      </tr>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</body>

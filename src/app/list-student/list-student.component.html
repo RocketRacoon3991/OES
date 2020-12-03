@@ -1,0 +1,62 @@
+<app-principal-navbar></app-principal-navbar><br /><br />
+<h2 style="text-align: center; margin-top: 10px;">Student List</h2>
+<table
+  class="table table-bordered table-hover table-striped"
+  style="margin-top: 10px;"
+>
+  <tr style="background-color: orange; color: white;">
+    <th>RollNo</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>EmailId</th>
+    <th>MobileNo</th>
+    <th>JoiningDate</th>
+    <th>Gender</th>
+    <th>Parents Email Id Name</th>
+    <th>Parents Mobile No</th>
+    <th>Manage Student</th>
+  </tr>
+  <tr *ngFor="let student of studentList">
+    <input type="hidden" value="{{ student.StudentId }}" />
+    <td>{{ student.RollNo }}</td>
+    <td>{{ student.FirstName }}</td>
+    <td>{{ student.LastName }}</td>
+    <td>{{ student.EmailId }}</td>
+    <td>{{ student.MobileNo }}</td>
+    <td>{{ student.JoiningDate  }}</td> <!-- | date: "yyyy-MM-dd" -->
+    <td>{{ student.Gender }}</td>
+    <td>{{ student.ParentsEmailId }}</td>
+    <td>{{ student.ParentsMobileNo }}</td>
+    <td>
+      <i
+        class="fa fa-pencil-square-o"
+        aria-hidden="true"
+        style="color: rgb(20, 183, 238); font-size: 30px;"
+        (click)="Edit(student)"
+      ></i>
+      &nbsp;
+      <i
+        class="fa fa-trash"
+        aria-hidden="true"
+        style="color: red; font-size: 30px;"
+        (click)="Delete(student.StudentId)"
+      ></i>
+      <!-- <button
+        type="button"
+        class="btn btn-success"
+        matTooltip="Edit"
+        (click)="Edit(student)"
+      >
+        Edit
+      </button> -->
+      <!-- <button
+        type="button"
+        class="btn btn-danger"
+        matTooltip="Delete"
+        (click)="Delete(student.StudentId)"
+      >
+        Delete
+      </button> -->
+    </td>
+  </tr>
+</table>

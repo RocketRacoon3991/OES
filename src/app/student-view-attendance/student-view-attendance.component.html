@@ -1,0 +1,26 @@
+<app-student-navbar></app-student-navbar> <br /><br />
+<body>
+  <br />
+  <div style="text-align: center; margin-top: 50px;">
+    <h2>Student Attendance</h2>
+  </div>
+  <br />
+  <div style="margin-left: 50px; margin-right: 50px;">
+    <table class="table table-bordered table-hover table-striped;">
+      <tr style="background-color: #ff4f00; color: white;">
+        <th>Roll No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+      <tr *ngFor="let i of AttendanceList">
+        <td>{{i.RollNo}}</td>
+        <td>{{ i.FirstName }}</td>
+        <td>{{ i.LastName }}</td>
+        <td>{{ i.Date | date: "yyyy-MM-dd" }}</td>
+        <td>{{ i.PresentOrAbsent }}</td>
+      </tr>
+    </table>
+  </div>
+</body>

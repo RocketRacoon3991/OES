@@ -1,0 +1,428 @@
+<div
+  class="jumbotron"
+  style="background: linear-gradient(to right, #0066ff 0%, orange 100%);"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 offset-md-0">
+        <div style="align-content: center;">
+          <!-- Designing Add User Form-->
+          <form
+            [formGroup]="addForm"
+            (ngSubmit)="onSubmit()"
+            class="card-block card wow fadeInLeft boxshadow"
+            style="padding: 50px;"
+            data-wow-delay="0.3s"
+          >
+            <h3
+              class="h3 text-shadow text-center"
+              style="font-weight: bolder; color: black; margin-bottom: 20px;"
+            >
+              Add New TimeTable
+            </h3>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="Sunady" style="font-weight: bold;"
+                  >Sunday :
+                </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  formControlName="Sunday"
+                  placeholder="Sunday"
+                  required
+                  [ngClass]="{
+                    'has-danger':
+                      addForm.controls.Sunday.invalid &&
+                      (addForm.controls.Sunday.dirty ||
+                        addForm.controls.Sunday.touched),
+                    'has-success':
+                      addForm.controls.Sunday.valid &&
+                      (addForm.controls.Sunday.dirty ||
+                        addForm.controls.Sunday.touched)
+                  }"
+                />
+
+                <div
+                  class="form-control-feedback"
+                  *ngIf="
+                    addForm.get('Sunday').errors &&
+                    (addForm.get('Sunday').dirty ||
+                      addForm.get('Sunday').touched)
+                  "
+                >
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Sunday').errors.required"
+                  >
+                    This Field is required
+                  </p>
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Sunday').errors.pattern"
+                  >
+                    Only albhabets allowed.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="Monady" style="font-weight: bold;"
+                  >Monday :
+                </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  formControlName="Monday"
+                  placeholder="Monday"
+                  required
+                  [ngClass]="{
+                    'has-danger':
+                      addForm.controls.Monday.invalid &&
+                      (addForm.controls.Monday.dirty ||
+                        addForm.controls.Monday.touched),
+                    'has-success':
+                      addForm.controls.Monday.valid &&
+                      (addForm.controls.Monday.dirty ||
+                        addForm.controls.Monday.touched)
+                  }"
+                />
+
+                <div
+                  class="form-control-feedback"
+                  *ngIf="
+                    addForm.get('Monday').errors &&
+                    (addForm.get('Monday').dirty ||
+                      addForm.get('Monday').touched)
+                  "
+                >
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Monday').errors.required"
+                  >
+                    Field is required
+                  </p>
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Monday').errors.pattern"
+                  >
+                    Only albhabets allowed.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="Tuesday" style="font-weight: bold;"
+                  >Tuesday :
+                </label>
+                <div class="form-group has-success">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="form-control"
+                    formControlName="Tuesday"
+                    placeholder="Tuesday"
+                    [ngClass]="{
+                      'has-danger':
+                        addForm.controls.Tuesday.invalid &&
+                        (addForm.controls.Tuesday.dirty ||
+                          addForm.controls.Tuesday.touched),
+                      'has-success':
+                        addForm.controls.Tuesday.valid &&
+                        (addForm.controls.Tuesday.dirty ||
+                          addForm.controls.Tuesday.touched)
+                    }"
+                  />
+                  <div
+                    class="form-control-feedback"
+                    *ngIf="
+                      addForm.get('Tuesday').errors &&
+                      (addForm.get('Tuesday').dirty ||
+                        addForm.get('Tuesday').touched)
+                    "
+                  >
+                    <p
+                      style="color: red;"
+                      *ngIf="addForm.get('Tuesday').errors.required"
+                    >
+                      Field is required
+                    </p>
+                    <p
+                      style="color: red;"
+                      *ngIf="addForm.get('Tuesday').errors.pattern"
+                    >
+                      Only Alphabets are Allowed
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Wednesday" style="font-weight: bold;"
+                    >Wednesday :
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Wednesday"
+                    id="Wednesday"
+                    placeholder="Wednesday"
+                    [ngClass]="{
+                      'has-danger':
+                        addForm.controls.Wednesday.invalid &&
+                        (addForm.controls.Wednesday.dirty ||
+                          addForm.controls.Wednesday.touched),
+                      'has-success':
+                        addForm.controls.Wednesday.valid &&
+                        (addForm.controls.Wednesday.dirty ||
+                          addForm.controls.Wednesday.touched)
+                    }"
+                  />
+
+                  <div
+                    class="form-control-feedback"
+                    *ngIf="
+                      addForm.get('Wednesday').errors &&
+                      (addForm.get('Wednesday').dirty ||
+                        addForm.get('Wednesday').touched)
+                    "
+                  >
+                    <p
+                      style="color: red;"
+                      *ngIf="addForm.get('Wednesday').errors.required"
+                    >
+                      Field is required
+                    </p>
+                    <p
+                      style="color: red;"
+                      *ngIf="addForm.get('Wednesday').errors.pattern"
+                    >
+                      Only Allphabets allowed.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="Thursday" style="font-weight: bold;">Thursday : </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  formControlName="Thursday"
+                  placeholder="Thursday"
+                  required
+                  [ngClass]="{
+                    'has-danger':
+                      addForm.controls.Thursday.invalid &&
+                      (addForm.controls.Thursday.dirty ||
+                        addForm.controls.Thursday.touched),
+                    'has-success':
+                      addForm.controls.Thursday.valid &&
+                      (addForm.controls.Thursday.dirty ||
+                        addForm.controls.Thursday.touched)
+                  }"
+                />
+
+                <div
+                  class="form-control-feedback"
+                  *ngIf="
+                    addForm.get('Thursday').errors &&
+                    (addForm.get('Thursday').dirty ||
+                      addForm.get('Thursday').touched)
+                  "
+                >
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Thursday').errors.required"
+                  >
+                    Field is required
+                  </p>
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Thursday').errors.pattern"
+                  >
+                    Only albhabets allowed.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="Friday" style="font-weight: bold;">Friday : </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  formControlName="Friday"
+                  placeholder="Friday"
+                  required
+                  [ngClass]="{
+                    'has-danger':
+                      addForm.controls.Friday.invalid &&
+                      (addForm.controls.Friday.dirty ||
+                        addForm.controls.Friday.touched),
+                    'has-success':
+                      addForm.controls.Friday.valid &&
+                      (addForm.controls.Friday.dirty ||
+                        addForm.controls.Friday.touched)
+                  }"
+                />
+
+                <div
+                  class="form-control-feedback"
+                  *ngIf="
+                    addForm.get('Friday').errors &&
+                    (addForm.get('Friday').dirty ||
+                      addForm.get('Friday').touched)
+                  "
+                >
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Friday').errors.required"
+                  >
+                    Field is required
+                  </p>
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Friday').errors.pattern"
+                  >
+                    Only albhabets allowed.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="Saturday" style="font-weight: bold;">Saturday : </label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="form-control"
+                  formControlName="Saturday"
+                  placeholder="Saturday"
+                  required
+                  [ngClass]="{
+                    'has-danger':
+                      addForm.controls.Saturday.invalid &&
+                      (addForm.controls.Saturday.dirty ||
+                        addForm.controls.Saturday.touched),
+                    'has-success':
+                      addForm.controls.Saturday.valid &&
+                      (addForm.controls.Saturday.dirty ||
+                        addForm.controls.Saturday.touched)
+                  }"
+                />
+
+                <div
+                  class="form-control-feedback"
+                  *ngIf="
+                    addForm.get('Saturday').errors &&
+                    (addForm.get('Saturday').dirty ||
+                      addForm.get('Saturday').touched)
+                  "
+                >
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Saturday').errors.required"
+                  >
+                    Field is required
+                  </p>
+                  <p
+                    style="color: red;"
+                    *ngIf="addForm.get('Saturday').errors.pattern"
+                  >
+                    Only albhabets allowed.
+                  </p>
+                </div>
+              </div>
+
+
+
+
+
+
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Time" style="font-weight: bold;"
+                    >Time :
+                  </label>
+                  <input
+                    type="datetime"
+                    class="form-control"
+                    formControlName="Time"
+                    id="Time"
+                    placeholder="Enter Time"
+                    [ngClass]="{
+                      'has-danger':
+                        addForm.controls.Time.invalid &&
+                        (addForm.controls.Time.dirty ||
+                          addForm.controls.Time.touched),
+                      'has-success':
+                        addForm.controls.Time.valid &&
+                        (addForm.controls.Time.dirty ||
+                          addForm.controls.Time.touched)
+                    }"
+                  />
+
+                  <div
+                    class="form-control-feedback"
+                    *ngIf="
+                      addForm.get('Time').errors &&
+                      (addForm.get('Time').dirty ||
+                        addForm.get('Time').touched)
+                    "
+                  >
+                    <p
+                      style="color: red;"
+                      *ngIf="addForm.get('Time').errors.required"
+                    >
+                      Date is required
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            
+            <br />
+            <br />
+            
+
+            
+              
+            <div class="text-center">
+              <button class="btn btn-success" [disabled]="addForm.invalid" style="font-weight: bold;">
+                 Add TimeTable
+              </button>
+            </div>
+</form>
+
+          </div>
+      </div>
+    </div>
+
+           
+  </div> 
+       
+</div>
+

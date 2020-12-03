@@ -1,0 +1,4 @@
+{
+    "appService.deploySubpath": "dist\\OES",
+    "appService.defaultWebAppToDeploy": "/subscriptions/7a85d86a-b1c9-443a-b9e0-ead62c05d928/resourceGroups/OESdemo/providers/Microsoft.Web/sites/OESangular"
+}

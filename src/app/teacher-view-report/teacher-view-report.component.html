@@ -1,0 +1,73 @@
+<app-navbar></app-navbar><br /><br />
+<div class="container">
+  <body>
+    <br />
+    <div style="text-align: center; margin-top: 40px;">
+      <h2>Student Reports</h2>
+    </div>
+    <div class="row">
+      <div style="margin-left: 30px; margin-right: 30px;">
+        <h6>Search Report By RollNo :</h6>
+      </div>
+      <div class="from-group">
+        <input
+          type="text"
+          class="from-control"
+          style="padding-right: 100px;"
+          placeholder="Search by Student Id"
+          [(ngModel)]="SearchTerm"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="table_list_Report">
+      <table class="table table-bordered table-hover table-striped">
+        <tr class="info" style="background-color: #3bb5ff; color: white;">
+          <th>Sr No.</th>
+          <th>Student Roll No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Subject Name</th>
+          <th>Score</th>
+          <th>Submitted Date</th>
+        <!--  <th>Send Report to Parents</th>-->
+        </tr>
+        <tr
+          style="text-align: center;"
+          *ngFor="
+            let i = index;
+            let R;
+            of: Reports
+              | search: SearchTerm
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ R.RollNo }}</td>
+          <td>{{ R.FirstName }}</td>
+          <td>{{ R.LastName }}</td>
+          <td>{{ R.SubjectName }}</td>
+          <td>{{ R.Score }}</td>
+          <td>{{ R.SubmittedDate | date: "yyyy-MM-dd" }}</td>
+          <!--<td style="text-align: center;">
+            <i
+              class="fa fa-envelope-square"
+              style="color: lightgreen; font-size: 40px;"
+              aria-hidden="true"
+              (click)="Send(R)"
+            ></i>
+            <!---- <button
+              type="button"
+              class="btn btn-success"
+              matTooltip="Send"
+              (click)="Send(R)"
+            >
+              Send
+            </button> 
+          </td>-->
+        </tr>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </body>
+</div>

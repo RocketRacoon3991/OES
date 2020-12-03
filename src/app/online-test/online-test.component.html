@@ -1,0 +1,60 @@
+
+<body
+  style="
+    background: linear-gradient(to top right, white, green 100%);
+    padding-bottom: 1px;
+  "
+>
+  <div class="row" *ngIf="onlineQuizService.questions">
+    <div class="col-md-8 offset-2">
+      <h1
+        class="text-center"
+        style="margin-top: 20px; margin-bottom: 20px; color: white;"
+      >
+        Test
+      </h1>
+
+      <div class="card dark-blue" style="background-color: ghostwhite;">
+        <div class="card-content">
+          <div class="row" style="margin-top: 50px;">
+            <div class="col-md-1">
+              <span class="card-title" style="margin-left: 25px; font-size: larger; font-weight:bold"
+                >{{ onlineQuizService.qnProgress + 1 }}.</span
+              >
+            </div>
+            <p style="font-weight: bold; font-size: larger;">
+              {{ onlineQuizService.questions[onlineQuizService.qnProgress].Qn }}
+            </p>
+          </div>
+        </div>
+        <div class="card-action" style="margin-bottom: 105px;">
+          <ul class="collection answer">
+            <ng-container
+              *ngFor="
+                let option of onlineQuizService.questions[
+                  onlineQuizService.qnProgress
+                ].Options;
+                let i = index
+              "
+            >
+              <li
+                style="margin-top: 40px; height: 40px;" 
+                *ngIf="option != null"
+                class="collection-item"
+                (click)="
+                  Answer(
+                    onlineQuizService.questions[onlineQuizService.qnProgress]
+                      .QuestionId,
+                    i
+                  )
+                "
+              >
+                {{ option }}
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,29 @@
+<app-student-navbar></app-student-navbar><br><br>
+
+<body style="margin: 30px;">
+  <div style="text-align: center; margin-top: 60px;">
+    <h2>Time Table</h2>
+  </div>
+  <table class="table table-bordered table-hover table-striped">
+    <tr style="background-color: #3bb5ff; color: white;">
+      <th>Sunday</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Time</th>
+    </tr>
+    <tr *ngFor="let i of timetable">
+      <td>{{ i.Sunday }}</td>
+      <td>{{ i.Monday }}</td>
+      <td>{{ i.Tuesday }}</td>
+      <td>{{ i.Wednesday }}</td>
+      <td>{{ i.Thursday }}</td>
+      <td>{{ i.Friday }}</td>
+      <td>{{ i.Saturday }}</td>
+      <td>{{ i.Time }}:00</td>
+    </tr>
+  </table>
+</body>

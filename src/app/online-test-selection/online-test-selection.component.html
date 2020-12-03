@@ -1,0 +1,44 @@
+<app-student-navbar></app-student-navbar> <br /><br />
+<body
+  style="background: linear-gradient(to top right, black 0%, green 100%);"
+>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div>
+      <br>
+      <h6 style="text-align: center; color: white;">
+        1. The test contains 10 questions and there is no time limit.
+      </h6>
+      <h6 style="text-align: center; color: white;">2. There is no negative marking for wrong answers.</h6>
+      <h6 style="text-align: center; color: white;">3. You will get 1 point for each correct answer.</h6>
+      <h6 style="text-align: center; color: white;">4. At the end of the Quiz, your total score will be displayed.</h6>
+      <h6 style="text-align: center; color: white;">5. Maximum score is 10 points.</h6>
+    </div>
+    <div class="row">
+      
+      <div class="col-md-8 offset-2">
+        <div>
+          <h2 style="text-align: center; margin: 30px; color: lightcyan;">
+            Select test subject
+          </h2>
+          <select
+            name="SubjectName"
+            id="SubjectName"
+            class="form-control"
+            formControlName="SubjectName"
+            placeholder="select Subject"
+          >
+            <option value="">Select subject</option>
+            <Option *ngFor="let i of ListSubject" value="{{ i.SubjectId }}">
+              {{ i.SubjectName }}
+            </Option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin: 30px; padding-bottom: 325px;">
+      <button type="submit" name="Submit" class="btn btn-success">
+        Submit
+      </button>
+    </div>
+  </form>
+</body>
